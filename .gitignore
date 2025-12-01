@@ -205,3 +205,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+
+# 1. Das Wichtigste: Der Build-Ordner
+# Wir wollen keine kompilierten Programme (Müll) hochladen.
+target/
+
+# 3. System-Dateien (Optional, aber gut)
+**/*.rs.bk
+*.swp
+.DS_Store
+.vscode/
