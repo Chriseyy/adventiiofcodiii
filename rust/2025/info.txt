@@ -1,0 +1,19 @@
+wenn neuer tag 
+
+im terminal: in 2025
+cargo new day02
+
+
+und in toml erweitern:
+[workspace]
+resolver = "2"
+members = [
+    "day01",
+    "day02",   <-- Das schreibst du dazu!
+]
+
+
+
+aus führen datei day...
+cargo run, cargo build oder cargo check
+
