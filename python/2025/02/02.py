@@ -34,6 +34,9 @@ def part1(txt):
     print(invalid_ids_sum)
 
 
+######################################################
+
+
 def part2_repeating_split(num):
     s_num = str(num)
     length = len(s_num)
