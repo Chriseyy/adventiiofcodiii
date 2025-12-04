@@ -2,7 +2,7 @@
 use std::{fs};
 
 fn part1() {
-    let input = fs::read_to_string("day01/src/input.txt").expect("Not found");
+    let input = fs::read_to_string("inputs/01/input.txt").expect("Not found");
 
     let mut position: i32 = 50; 
     let mut zero_hits = 0;
@@ -36,7 +36,7 @@ fn part1() {
 
 
 fn part2() {
-    let input = fs::read_to_string("day01/src/input.txt").expect("Not found");
+    let input = fs::read_to_string("inputs/01/input.txt").expect("Not found");
 
     let mut position: i32 = 50; 
     let mut zero_hits = 0;

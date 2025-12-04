@@ -69,7 +69,7 @@ fn part2(ranges: &Vec<(u64, u64)>) {
 
 
 fn main() {
-    let content = fs::read_to_string("day02/src/input.txt").expect("file?");
+    let content = fs::read_to_string("inputs/02/input.txt").expect("file?");
 
     let mut ranges: Vec<(u64, u64)> = Vec::new();
 

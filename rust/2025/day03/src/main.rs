@@ -71,7 +71,7 @@ fn part2(txt: &Vec<&str>) {
 
 
 fn main() {
-    let content = fs::read_to_string("day03/src/input.txt").expect("file?");
+    let content = fs::read_to_string("inputs/03/input.txt").expect("file?");
     let txt: Vec<&str> = content.split_whitespace().collect();
 
     part1(&txt);
