@@ -1,7 +1,7 @@
 
 
-# txt = open('2025/01/input_test.txt').read().split()
-txt = open('2025/01/input.txt').read().split()
+# txt = open('2025/inputs/01/input_test.txt').read().split()
+txt = open('2025/inputs/01/input.txt').read().split()
 
 # print(txt)
 

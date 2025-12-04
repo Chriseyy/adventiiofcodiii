@@ -1,5 +1,5 @@
-# txt = open('2025/04/input_test.txt').read().split()
-txt = open('2025/04/input.txt').read().split()
+txt = open('2025/inputs/04/input_test.txt').read().split()
+# txt = open('2025/inputs/04/input.txt').read().split()
 
 
 def check_field(grid, row, col):
@@ -27,7 +27,6 @@ def part1(txt):
         row = []    
 
     # grid = [list(line) for line in txt] kompakter
-
 
     forklift_accesable = 0
     for idx_row, row in enumerate(grid):

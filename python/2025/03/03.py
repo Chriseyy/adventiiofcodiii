@@ -1,5 +1,5 @@
-# txt = open('2025/03/input_test.txt').read().split()
-txt = open('2025/03/input.txt').read().split()
+# txt = open('2025/inputs/03/input_test.txt').read().split()
+txt = open('2025/inputs/03/input.txt').read().split()
 
 
 def part1(txt):
