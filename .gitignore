@@ -217,3 +217,9 @@ target/
 *.swp
 .DS_Store
 .vscode/
+
+
+
+
+## inputs
+input.txt
