@@ -3,9 +3,6 @@
 # txt = open('2025/inputs/07/input_test.txt').read().split("\n")
 txt = open('2025/inputs/07/input.txt').read().split("\n")
 
-
-
-
 def part1(txt):
     grid = [list(line) for line in txt] 
     height = len(grid)
@@ -123,6 +120,54 @@ def part1(txt):
     print("Part 1: ", hit_count)
 
 
+############################################################
+
+def count_timelines(r, c, memo, height, grid, width):
+    if (r, c) in memo:
+        return memo[(r, c)]
+
+    curr_r = r
+    curr_c = c
+    
+    while curr_r < height:
+        char = grid[curr_r][curr_c]
+        
+        if char == "^":
+            total_paths = 0
+
+            if curr_c - 1 >= 0:
+                total_paths += count_timelines(curr_r, curr_c - 1,  memo, height, grid, width)
+            
+            if curr_c + 1 < width:
+                total_paths += count_timelines(curr_r, curr_c + 1,  memo, height, grid, width)
+            
+            memo[(r, c)] = total_paths
+            return total_paths
+
+        curr_r += 1
+
+    return 1
+
+def part2(txt):
+    grid = [list(line) for line in txt if line.strip()]
+    height = len(grid)
+    width = len(grid[0])
+
+    start_pos = None
+    for r, line in enumerate(grid):
+        if "S" in line:
+            start_pos = (r, line.index("S"))
+            break
+
+    # Algorithmus: DFS (Depth First Search) mit memoization
+    # Algorithmus: DFS (Depth First Search) mit meooization
+    result = count_timelines(start_pos[0], start_pos[1], memo = {}, height=height, grid=grid, width=width)
+    
+    print("Part 2: ", result)
+
+
+
 
 
 part1(txt)
+part2(txt)
