@@ -171,3 +171,91 @@ def part2(txt):
 
 part1(txt)
 part2(txt)
+print("----------")
+
+
+# Andere idee unsichtbares gird und mitzählen 
+def part1(txt):
+    grid = [list(line.strip()) for line in txt if line.strip()]
+    height = len(grid)
+    width = len(grid[0])
+
+    start_x, start_y = 0, 0
+    for y in range(height):
+        if "S" in grid[y]:
+            start_x = grid[y].index("S")
+            start_y = y
+            break
+
+    beam_grid = [[0] * width for _ in range(height)]
+    beam_grid[start_y][start_x] = 1 
+
+    total_splits = 0
+
+    for y in range(start_y, height - 1):
+        for x in range(width):
+            if beam_grid[y][x] == 1:
+                target_cell = grid[y+1][x]
+
+                if target_cell == '^':
+                    total_splits += 1
+                    
+                    if x > 0:
+                        beam_grid[y+1][x-1] = 1
+                        grid[y+1][x-1] = "|"   # würde nicht gehen wenn spltitter neben spliter 
+                    if x < width - 1:
+                        beam_grid[y+1][x+1] = 1
+                        grid[y+1][x+1] = "|"
+                else:
+                    beam_grid[y+1][x] = 1
+                    grid[y+1][x] = "|"
+    
+    # for i in grid:
+    #     print(i)
+    # for i in beam_grid:
+    #     print(i)
+    print("Part 1: ", total_splits)
+
+
+def part2(txt):
+    grid = [list(line.strip()) for line in txt if line.strip()]
+    height = len(grid)
+    width = len(grid[0])
+
+    start_x, start_y = 0, 0
+    for y in range(height):
+        if "S" in grid[y]:
+            start_x = grid[y].index("S")
+            start_y = y
+            break
+
+    timeline_grid = [[0] * width for _ in range(height)]
+    timeline_grid[start_y][start_x] = 1 
+
+    for y in range(start_y, height - 1):
+        for x in range(width):
+            count = timeline_grid[y][x]
+            
+            if count > 0:
+                target_cell = grid[y+1][x]
+
+                if target_cell == '^':
+                    if x > 0:
+                        timeline_grid[y+1][x-1] += count
+                        grid[y+1][x-1] = "|"
+                    if x < width - 1:
+                        timeline_grid[y+1][x+1] += count
+                        grid[y+1][x+1] = "|"
+                else:
+                    timeline_grid[y+1][x] += count
+                    grid[y+1][x] = "|"
+
+    # for i in grid:
+    #     print(i)
+    # for i in timeline_grid:
+    #     print(i)
+    print("Part 2: ", sum(timeline_grid[height-1]))
+
+
+part1(txt)
+part2(txt)
